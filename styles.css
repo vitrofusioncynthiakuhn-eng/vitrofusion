@@ -1,0 +1,615 @@
+/* ========================================= */
+/* =========== VARIABLES GENERALES ========== */
+/* Colores y configuraciones reutilizables   */
+/* ========================================= */
+
+:root{
+/* ========== Colores ======= */
+    --color-principal: #5F8D7A;
+    --color-secundario: #F7F4EF;
+    --color-acento: #A8D5E2;
+    --color-texto: #333333;
+    --color-blanco: #FFFFFF;
+
+    /*=========== TIPOGRAFÍA ===========*/
+    --fuente-principal: Arial, sans-serif;
+
+    /*============== BORDES ===============*/
+     --radio-bordes: 12px;
+
+     /*==================== SOMBRAS =================*/
+     --sombra: 0px 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* ================== RESET GENERAL ============================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================= ESTILOS GENERALES =============================*/
+body{
+
+    font-family: var(--fuente-principal);  /*Tipo de letra*/
+    background-color: var(--color-secundario);   /*Color de fondo a toda la pagina*/
+    color: var(--color-texto);   /*Color de texto por defecto*/
+    line-height: 1.6;    /*Separa un poco las líneas de los párrafos para que sea mas cómodo leer*/
+
+}
+
+/* ============================IMÁGENES Y ENLACES ==========================*/
+img{
+
+    max-width: 100%;      /*Hace que la imág. nunca se salga del contenedor*/
+    display: block;       /*Evita los pequeños espacios en blanco que a veces aparecen debajo de las imág.*/
+
+}
+
+a{
+
+    text-decoration: none;    /*Subrayado azul de los enlaces*/
+    color: inherit;     /*Hace que el enlace use el color del texto del lugar donde está, en vez del azul por defecto.*/
+
+}
+
+/* ===================================== ENCABEZADO ===============================*/
+.encabezado{
+
+    min-height: 100vh;  /*el encabezado ocupará toda la altura de la pantalla*/
+    background-image: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;   /*Hace que la imag. ocupe todo el encabezado*/
+    background-position: center;    /*Centra la imagen*/
+    background-repeat: no-repeat;    /*Evita que la imagen se repita*/
+
+    color: var(--color-blanco);
+
+}
+
+/* ============================== MENÚ DE NAVEGACIÓN ===========================*/
+.menu{
+
+    display: flex;     /*Convierte el menú en flexible*/
+    justify-content: space-between;    /*Empuja el logo todo hacia la izquierda y el botón hacia la derecha*/
+    align-items: center;    /*Los deja alineados verticalmente*/
+
+    padding: 25px 8%;   /*Le da espacio arriba, abajo y a los costados */
+
+}
+
+/*Animación de botón del menú*/
+.boton-menu{
+
+    background: linear-gradient(135deg, #4caf4f88, #66BB6A);
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow: 0 8px 20px rgba(76, 175, 80, .30);
+
+}
+
+
+.boton-menu:hover{
+
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow: 0 12px 25px rgba(76,175,80,.45);
+
+}
+
+.boton-menu:active{
+
+    transform: scale(.97);
+
+}
+
+/* ================================== LOGO ===========================*/
+.logo{
+
+    font-size: 1.8rem;    /*Hace el texto bastante grande*/
+    font-weight: bold;      /*Lo pone en negrita*/
+    color: var(--color-blanco);    /*Color blanco porque está sobre la imagen*/
+
+}
+
+/* ===============================CONTENIDO DEL ENCABEZADO ==============
+============== (Título, descripc. y botón principal) ==============================*/
+
+.contenido-encabezado{
+
+    display: flex;            /*Convierte el contenido en un contenedor flexible*/
+    flex-direction: column;        /*Hace que todo se acomode uno abajo del otro*/
+    justify-content: center;      /*Centra todo verticalmente*/
+    align-items: center;               /*Centra todo horizontalmente*/
+
+    text-align: center;                     /*Centra el texto*/
+
+    min-height: calc(100vh - 90px);              /*ocupa toda la pantalla menos el espacio del menú*/
+
+    padding: 20px;
+
+}
+
+/* =============================== TEXTO SUPERIOR =============
+============= (pequeño texto sobre el título) ========*/
+.texto-superior{
+
+    font-size: 1rem;
+    letter-spacing: 2px;                /*Separa un poco las letras entre sí*/
+    text-transform: uppercase;        /*Comvierte todo el texto en mayúscula*/
+
+    margin-bottom: 15px;
+
+}
+
+/* ========================= TÍTULO PRINCIPAL ==========================*/
+.contenido-encabezado h1{
+
+    font-size: 4rem;
+
+    margin-bottom: 20px;
+
+}
+
+/* =========================== DESCRIPCIÓN PRINCIPAL ============================*/
+.descripcion-principal{
+
+    max-width: 700px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+/* =============================== BOTÓN PRINCIPAL (WHATSAPP) ======================*/
+.boton-secundario{
+
+    display: inline-block;
+
+    background-color: var(--color-principal);
+
+    color: var(--color-blanco);
+
+    padding: 15px 35px;
+
+    border-radius: var(--radio-bordes);
+
+    transition: .3s;
+
+    font-weight: bold;
+
+}
+
+.boton-secundario:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--sombra);
+
+}
+
+/* ===================================== PRESENTACIÓN (introducción al catálogo) ==============================*/
+.presentacion{
+
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    padding: 0 30px;   /*Hace que el texto nunca quede pegado al borde*/
+
+    display: flex;       /*Coloca las dos columnas una alado de la otra*/
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    align-items: center;
+
+}
+
+/*TEXTO PEQUEÑO*/
+.texto-seccion{
+
+    color: var(--color-principal);
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+/*EL TÍTLO*/
+.presentacion h2{
+
+    font-size: 2.5rem;
+
+    margin-bottom: 20px;
+
+}
+
+/*EL PÁRRAFO*/
+.presentacion p{
+
+    line-height: 1.8;
+
+}
+
+/* ============================== CONTENIDO DE LA PRESENTACIÓN (distrib. de los textos principales9 ============================*/
+.contenido-presentacion{
+
+    flex: 1;        /*Ocupa todo el espacio disponible*/
+
+}
+
+/*Segunda presentación*/
+.texto-presentacion{
+
+    flex: 1;
+
+}
+
+/* ===================== TÍTULO PRINCIPAL ======================*/
+.presentacion h2{
+
+    font-size: 2.8rem;
+
+    margin-bottom: 20px;
+
+    color: var(--color-texto);
+
+}
+
+/*El párrafo*/
+.presentacion h2{
+
+    font-size: 2.8rem;
+
+    margin-bottom: 20px;
+
+    color: var(--color-texto);
+
+}
+
+/* ============================== CATÁLOGO =============
+============ (contenedor principal de los productos) ========*/
+.catalogo{
+
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    padding: 0 30px;
+
+}
+
+/*Encabezado del catálogo*/
+.encabezado-catalogo{
+
+    margin-bottom: 60px;
+
+}
+
+/*El título*/
+.encabezado-catalogo h2{
+
+    font-size: 2.5rem;
+
+    margin-bottom: 15px;
+
+}
+
+/*El texto*/
+.encabezado-catalogo p{
+
+    max-width: 700px;
+
+    line-height: 1.8;
+
+}
+
+/* ============================== CUADRÍCULA PRODUCTOS (organización de las tarjetas) ======*/
+.cuadricula-productos{
+
+    display: grid;       /*Organiza los productos como una cuadrícula*/
+
+    grid-template-columns: repeat(3, 1fr);        /*Crea 3 columnas del mismo tamaño*/
+
+    gap: 30px;      /*Deja espacio entre las tarjetas*/
+
+    margin-top: 40px;        /*Separa las tarjetas del título de la categoría*/
+
+}
+
+/* ========================== TARJETAS PRODUCTOS =================
+======== (diseño de cada producto del catálogo)========*/
+.tarjeta-producto{
+
+    background-color: var(--color-blanco);      /*hace que cada tarjeta tenga fondo de color blanco*/
+
+    border-radius: var(--radio-bordes);         /*Redondea las esquinas*/
+
+    overflow: hidden;          /*Hace que la imagen tambien respete las esquinas redondeas, si no estaria, la imá. se saldria del borde*/
+
+    box-shadow: var(--sombra);          /*Agrega sombra suave*/
+
+    transition: .3s;     /*animación*/
+
+}
+
+/* ================== EFECTO DE LAS TARJETAS, AL PASAR EL MOUSE ====================*/
+.tarjeta-producto:hover{
+
+    transform: translateY(-8px);
+
+}
+
+/* ========================== IMAGEN DEL PRODUCTO ===================*/
+.tarjeta-producto img{
+
+    width: 100%;    /*La imág. ocupa todo el ancho*/
+
+    height: 250px;           /*Todas las imág. tendrán la misma altura, asi quedan parejas las tarjetas*/
+
+    object-fit: cover;       /*Hace que la imág. se recorte automaticam. sin deformarse, para que se vean iguales y lindas*/
+
+}
+
+/* ========================= INFORMACIÓN DEL PRODUCTO =======================*/
+.informacion-producto{
+
+    padding: 20px;
+
+}
+
+/* ============================ TÍTULO DE LA CATEGORÍA ============
+========== (número y nombre de la categoría) =========*/
+.titulo-categoria{
+
+    display: flex;         /*Pone el numero y el título uno alado del otro*/
+
+    align-items: center;
+
+    gap: 15px;                    /*Deja espacio entre el número y el texto*/
+
+    margin-bottom: 30px;         /*Separa el título de las tarjetas*/
+
+}
+
+/* ========================== NÚMERO DE LA CATEGORÍA =======================*/
+.titulo-categoria span{
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    color: var(--color-principal);
+
+}
+
+
+/* ================================= NOMBRE DE LA CATEGORÍA ===================*/
+.titulo-categoria h3{
+
+    font-size: 2rem;
+
+    color: var(--color-texto);
+
+}
+
+/* ============================ SEPARACIÓN DE LAS CATEGORÍAS =========================*/
+.categoria{
+
+    margin-bottom: 80px;
+
+}
+
+/* =========================== PEDIDOS PERSONALIZADOS ===========================*/
+.pedidos-personalizados{
+
+     max-width: 1100px;
+
+    margin: 100px auto;
+
+    padding: 70px 50px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(135deg, #4caf4fb7, #81C784);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.20);
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+/* ==================== EFECTO DECORATIVO (círculo transparente en la esquina) ========================*/
+
+.pedidos-personalizados::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    top:-80px;
+
+    right:-80px;
+
+}
+
+/* =============================== CONTENIDO DE LA SECCIÓN FINAL===============================*/
+.pedidos-personalizados h2{
+
+     color:white;
+
+    font-size:2.8rem;
+
+    margin-bottom:20px;
+
+    line-height:1.3;
+
+}
+
+/*SUBTITULO*/
+.pedidos-personalizados p{
+
+    color:white;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    max-width:700px;
+
+    margin:0 auto 35px;
+
+}
+
+/* ============================= BOTÓN DE WHATSAPP ===========================*/
+.pedidos-personalizados .boton-principal{
+
+    background-color: var(--color-blanco);
+
+    color: var(--color-principal);
+
+}
+
+.pedidos-personalizados .boton-principal:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--sombra);
+
+}
+
+/* ================================ BOTÓN "VOLVER AL INCICIO" =====================*/
+.boton-volver{
+
+    display: inline-block;
+
+    background-color: transparent;
+
+    color: var(--color-principal);
+
+    border: 2px solid var(--color-principal);
+
+    padding: 10px 22px;
+
+    border-radius: var(--radio-bordes);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    margin-bottom: 20px;
+
+}
+
+.boton-volver:hover{
+
+    background-color: var(--color-principal);
+
+    color: var(--color-blanco);
+
+}
+
+/* ================================= BOTÓN "SOLICITAR PRESUPUESTO" =========================*/
+.boton-principal{
+
+    display:inline-block;
+
+    background:white;
+
+    color:#4CAF50;
+
+    padding:18px 45px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+}
+
+.boton-principal:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.30);
+
+}
+
+/* ============ PARA QUE FUNCIONE LA PARTE DE QUE ESTÉ SEPARADO CATALOGO CON INICIO*/
+.oculto{
+
+    display: none;
+
+}
+
+
+/* ======================================== RESPONSIVE (adaptación pata telefono y celulares) ==================*/
+@media (max-width:992px){
+
+    .cuadricula-productos{
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    #titulo-principal{
+
+        font-size:3rem;
+
+    }
+
+    .presentacion{
+
+        padding:70px 30px;
+
+    }
+
+}
