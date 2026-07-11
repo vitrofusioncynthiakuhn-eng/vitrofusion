@@ -625,5 +625,15 @@ a{
     width: 100%;
     }
 
+    /* ========== TARJETAS - CELULAR ============*/
+    .informacion-producto p:not(.etiqueta){
+    display: none;
+    }
+
+
+.informacion-producto strong{
+    display: none;
+}
+
 
 }
