@@ -577,7 +577,7 @@ a{
 /* ============ PARA QUE FUNCIONE LA PARTE DE QUE ESTÉ SEPARADO CATALOGO CON INICIO*/
 .oculto{
 
-    display: none;
+    display: none !important;
 
 }
 
