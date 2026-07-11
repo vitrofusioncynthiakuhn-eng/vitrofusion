@@ -594,6 +594,10 @@ a{
 /* ======================================== RESPONSIVE (adaptación pata telefono y celulares) ==================*/
 @media (max-width:768px){
 
+    body{
+        background: red;
+    }
+
     .cuadricula-productos{
 
         grid-template-columns: repeat(2,1fr);
