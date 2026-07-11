@@ -12,8 +12,6 @@ const catalogo = document.querySelector("#catalogo");                   //Guarda
 ============ (muestra el catálogo y oculta el inicio) =========*/
 botonCatalogo.addEventListener("click", function () {
 
-    alert("Catálogo abierto");
-
     encabezado.classList.add("oculto");
     presentacion.classList.add("oculto");
     catalogo.classList.remove("oculto");
