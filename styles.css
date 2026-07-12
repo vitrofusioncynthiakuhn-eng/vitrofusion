@@ -762,9 +762,9 @@ a{
 
     position: absolute;
 
-    top: 20px;
+    top: 10px;
 
-    right: 20px;
+    right: 10px;
 
     width: 45px;
 
@@ -783,6 +783,7 @@ a{
     cursor: pointer;
 
     transition: .3s;
+    z-index: 10;
 
 }
 
@@ -811,12 +812,15 @@ a{
     .modal-contenido{
 
         grid-template-columns: 1fr;
+        width: 70vh;
+        overflow-y:auto;
+        margin-top:40px;
 
     }
 
     #modal-imagen{
 
-        max-height: 220px;
+        max-height: 180px;
         width: 100%;
         object-fit: contain;
 
@@ -824,7 +828,7 @@ a{
 
     .modal-info{
 
-        padding: 25px;
+        padding: 15px;
 
     }
 
@@ -874,12 +878,14 @@ a{
 
     /* ========== TARJETAS - CELULAR ============*/
     .informacion-producto p:nth-of-type(2){
-    display: none;
+    display: block;
+    font-size: .9rem;
+    line-height: 1.4;
     }
 
 
 .informacion-producto strong{
-    display: none;
+    display: block;
 }
 
 .informacion-producto h3{
@@ -910,6 +916,39 @@ a{
     .tarjeta-presupuesto strong{
         font-size: 1rem;
     }
+
+}
+
+.pedidos-personalizados{
+
+    margin: 50px 15px;
+    padding: 35px 20px;
+    border-radius: 20px;
+
+}
+
+
+.pedidos-personalizados h2{
+
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+
+}
+
+
+.pedidos-personalizados p{
+
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+
+}
+
+
+.pedidos-personalizados .boton-principal{
+
+    padding: 12px 25px;
+    font-size: .95rem;
 
 }
 
