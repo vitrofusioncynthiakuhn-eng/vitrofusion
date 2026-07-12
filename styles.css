@@ -469,7 +469,7 @@ a{
 
     border-radius: 25px;
 
-    background: linear-gradient(135deg, #4caf4ff0, #81C784);
+    background: linear-gradient(135deg, #64cf68b1, #15d51f);
 
     box-shadow: 0 20px 50px rgba(0,0,0,.20);
 
@@ -808,6 +808,21 @@ a{
 
 }
 
+.informacion-producto{
+
+        padding: 12px;
+
+    }
+
+
+    .informacion-producto h4{
+
+        font-size: 1rem;
+        margin-top: 8px;
+        line-height: 1.3;
+
+    }
+
 /* ======================= RESPONSIVE DEL MODAL =======================*/
 @media (max-width:768px){
 
@@ -903,6 +918,12 @@ a{
     line-height: 1.3; 
 }
 
+.tarjeta-producto img{
+
+        height: 160px;
+
+    }
+
 @media (max-width:768px){
 
     .tarjeta-presupuesto .informacion-producto{
@@ -923,6 +944,12 @@ a{
 
     .tarjeta-presupuesto strong{
         font-size: 1rem;
+    }
+
+    .tarjeta-producto img{
+
+        height: 160px;
+
     }
 
 }
