@@ -10,7 +10,7 @@ const catalogo = document.querySelector("#catalogo");
 /* ================= ELEMENTOS DEL MODAL ================= */
 const modalProducto = document.querySelector("#modal-producto");
 
-const botonCerrarModal = document.querySelector(".cerrar-modal");
+const botonCerrarModal = document.querySelector(".modal-cerrar");
 
 const imagenModal = document.querySelector("#modal-imagen");
 
