@@ -469,7 +469,7 @@ a{
 
     border-radius: 25px;
 
-    background: linear-gradient(135deg, #64cf68b1, #15d51f);
+    background: linear-gradient(135deg, #56b1bdb1, #066791);
 
     box-shadow: 0 20px 50px rgba(0,0,0,.20);
 
@@ -951,6 +951,40 @@ a{
         height: 160px;
 
     }
+
+    .pedidos-personalizados{
+
+    margin: 50px 15px;
+    padding: 30px 20px;
+
+}
+
+
+.pedidos-personalizados h2{
+
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    white-space: normal;
+
+}
+
+
+.pedidos-personalizados p{
+
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+}
+
+
+.pedidos-personalizados .boton-principal{
+
+    padding: 12px 25px;
+    font-size: .95rem;
+
+}
 
 }
 
