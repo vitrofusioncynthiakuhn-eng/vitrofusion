@@ -348,13 +348,16 @@ a{
     box-shadow: var(--sombra);          /*Agrega sombra suave*/
 
     transition: .3s;     /*animación*/
+    cursor: pointer;
 
 }
 
 /* ================== EFECTO DE LAS TARJETAS, AL PASAR EL MOUSE ====================*/
 .tarjeta-producto:hover{
 
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
+
+    box-shadow: 0 18px 35px rgba(0,0,0,.18);
 
 }
 
@@ -365,7 +368,14 @@ a{
 
     height: 250px;           /*Todas las imág. tendrán la misma altura, asi quedan parejas las tarjetas*/
 
-    object-fit: cover;       /*Hace que la imág. se recorte automaticam. sin deformarse, para que se vean iguales y lindas*/
+    object-fit: cover; 
+    transition: .4s;      /*Hace que la imág. se recorte automaticam. sin deformarse, para que se vean iguales y lindas*/
+
+}
+
+.tarjeta-producto:hover img{
+
+    transform: scale(1.06);
 
 }
 
@@ -373,6 +383,36 @@ a{
 .informacion-producto{
 
     padding: 20px;
+
+}
+
+
+/*============= Contenido de las tarjetas =============*/
+.informacion-producto h4{
+
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+
+}
+
+.informacion-producto .etiqueta{
+
+    text-align: center;
+    color: var(--color-principal);
+    font-weight: bold;
+
+}
+
+.informacion-producto p:not(.etiqueta){
+
+    display: none;
+
+}
+
+.informacion-producto strong{
+
+    display: none;
 
 }
 
@@ -581,8 +621,202 @@ a{
 
 }
 
+/* ================================= MODAL DEL PRODUCTO ================================*/
 
-/* ======================================== RESPONSIVE (adaptación pata telefono y celulares) ==================*/
+.modal-producto{
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.65);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 999;
+
+}
+
+/* ==================== CONTENIDO DEL MODAL ====================*/
+.contenido-modal{
+
+    background: var(--color-blanco);
+
+    width: 100%;
+
+    max-width: 900px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.30);
+
+    position: relative;
+
+}
+
+/* ======================= IMAGEN DEL MODAL =======================*/
+#modal-imagen{
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    min-height: 450px;
+
+}
+
+/* ======================= INFORMACIÓN DEL MODAL =======================*/
+.modal-info{
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+/* Categoría */
+.modal-etiqueta{
+
+    color: var(--color-principal);
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+/* Título */
+#modal-titulo{
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+
+}
+
+/* Descripción */
+#modal-descripcion{
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+/* Precio */
+#modal-precio{
+
+    font-size: 1.6rem;
+
+    color: var(--color-principal);
+
+    margin-bottom: 30px;
+
+}
+
+/* ================= MENSAJE DEL MODAL ================= */
+.mensaje-modal{
+
+    margin-top: 25px;
+
+    font-size: .85rem;
+
+    color: #7a7a7a;
+
+    text-align: center;
+
+    font-style: italic;
+}
+
+/* ======================= BOTÓN CERRAR MODAL =======================*/
+.cerrar-modal{
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--color-principal);
+
+    color: var(--color-blanco);
+
+    font-size: 1.3rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+/* Efecto al pasar el mouse */
+.cerrar-modal:hover{
+
+    transform: rotate(90deg) scale(1.1);
+
+}
+
+/* ======================= RESPONSIVE DEL MODAL =======================*/
+@media (max-width:768px){
+
+    .contenido-modal{
+
+        grid-template-columns: 1fr;
+
+    }
+
+    #modal-imagen{
+
+        min-height: 250px;
+
+    }
+
+    .modal-info{
+
+        padding: 25px;
+
+    }
+
+    #modal-titulo{
+
+        font-size: 1.6rem;
+
+    }
+
+}
+
+
+/* ======================================== RESPONSIVE (adaptación para telefono y celulares) ==================*/
 @media (max-width:768px){
 
 
@@ -627,5 +861,73 @@ a{
     display: none;
 }
 
+
+}
+
+/* ============================= */
+/* AJUSTE DEL MODAL PARA CELULAR */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .modal-producto {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .modal-contenido {  /*Tarjeta blanca del producto*/
+        width: 90%;
+        max-width: 350px;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+
+    #modal-imagen {    /*Foto del producto*/
+        width: 100%;
+        height: auto;
+        max-height: 230px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+
+    .modal-cerrar {
+        width: 35px;
+        height: 35px;
+        font-size: 22px;
+        top: 10px;
+        right: 10px;
+    }
+
+
+    .modal-info h2 {
+        font-size: 21px;
+        margin: 10px 0;
+    }
+
+
+    .modal-info p {     /*Texto, precio y mensaje*/
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+
+    #modal-precio {
+        font-size: 18px;
+        display: block;
+        margin-top: 10px;
+    }
+
+
+    .mensaje-modal {
+        font-size: 13px;
+        margin-top: 15px;
+    }
 
 }
