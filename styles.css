@@ -508,11 +508,11 @@ a{
 
      color:white;
 
-    font-size:2.8rem;
-
-    margin-bottom:20px;
+    margin-bottom:15px;
 
     line-height:1.3;
+
+    font-size: 1.8rem;
 
 }
 
@@ -523,13 +523,15 @@ a{
 
     font-size:1.1rem;
 
-    line-height:1.8;
-
     max-width:700px;
 
     margin:0 auto 35px;
+    
+    line-height: 1.5;
+    margin-bottom: 25px;
 
 }
+
 
 /* ============================= BOTÓN DE WHATSAPP ===========================*/
 .pedidos-personalizados .boton-principal{
@@ -537,6 +539,9 @@ a{
     background-color: var(--color-blanco);
 
     color: var(--color-principal);
+
+    padding: 12px 25px;
+    font-size: .95rem;
 
 }
 
@@ -625,10 +630,7 @@ a{
 /* TARJETA SOLICITAR PRESUPUESTO */
 /* ============================= */
 
-.tarjeta-presupuesto .informacion-producto p:not(.etiqueta),
-.tarjeta-presupuesto .informacion-producto strong{
-    display: block;
-}
+
 
 /* ================================= MODAL DEL PRODUCTO ================================*/
 .modal-producto{
@@ -762,13 +764,13 @@ a{
 
     position: absolute;
 
-    top: 10px;
+    top: 8px;
 
-    right: 10px;
+    right: 8px;
 
-    width: 45px;
+    width: 35px;
 
-    height: 45px;
+    height: 35px;
 
     border: none;
 
@@ -778,7 +780,7 @@ a{
 
     color: var(--color-blanco);
 
-    font-size: 1.3rem;
+    font-size: 20px;
 
     cursor: pointer;
 
@@ -796,13 +798,13 @@ a{
 
 .informacion-producto p:not(.etiqueta){
 
-    display: block;
+    display: none;
 
 }
 
 .informacion-producto strong{
 
-    display: block;
+    display: none;
 
 }
 
@@ -811,31 +813,37 @@ a{
 
     .modal-contenido{
 
-        grid-template-columns: 1fr;
-        width: 70vh;
-        overflow-y:auto;
-        margin-top:40px;
+    grid-template-columns: 1fr;
+    width: 85%;
+    max-height: 75vh;
+    padding: 15px;
+    overflow-y: auto;
+    position: relative;
 
     }
 
     #modal-imagen{
 
-        max-height: 180px;
-        width: 100%;
+        height: 180px;
         object-fit: contain;
 
     }
 
     .modal-info{
 
-        padding: 15px;
+        padding: 10px;
 
     }
 
     #modal-titulo{
 
-        font-size: 1.6rem;
+        font-size: 1.3rem;
 
+    }
+
+    #modal-descripcion{
+        font-size: .9rem;
+        line-height: 1.4;
     }
 
 }
@@ -878,14 +886,14 @@ a{
 
     /* ========== TARJETAS - CELULAR ============*/
     .informacion-producto p:nth-of-type(2){
-    display: block;
+    display: none;
     font-size: .9rem;
     line-height: 1.4;
     }
 
 
 .informacion-producto strong{
-    display: block;
+    display: none;
 }
 
 .informacion-producto h3{
@@ -918,40 +926,6 @@ a{
     }
 
 }
-
-.pedidos-personalizados{
-
-    margin: 50px 15px;
-    padding: 35px 20px;
-    border-radius: 20px;
-
-}
-
-
-.pedidos-personalizados h2{
-
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-
-}
-
-
-.pedidos-personalizados p{
-
-    font-size: .95rem;
-    line-height: 1.5;
-    margin-bottom: 25px;
-
-}
-
-
-.pedidos-personalizados .boton-principal{
-
-    padding: 12px 25px;
-    font-size: .95rem;
-
-}
-
 
 }
 
