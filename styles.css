@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
 /* ========================================= */
 /* =========== VARIABLES GENERALES ========== */
 /* Colores y configuraciones reutilizables   */
@@ -57,26 +59,138 @@ a{
 /* ===================================== ENCABEZADO ===============================*/
 .encabezado{
 
-    min-height: 100vh;  /*el encabezado ocupará toda la altura de la pantalla*/
-    background-image: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80");
+    min-height: 40vh;
 
-    background-size: cover;   /*Hace que la imag. ocupe todo el encabezado*/
-    background-position: center;    /*Centra la imagen*/
-    background-repeat: no-repeat;    /*Evita que la imagen se repita*/
+    position: relative;
+
+    overflow: hidden;
 
     color: var(--color-blanco);
 
+
 }
 
-/* ============================== MENÚ DE NAVEGACIÓN ===========================*/
+/* ANIMACIÓN DEL ENCABEZADO */
+
+/* Estado inicial */
+.animacion-menu,
+.animacion-hero{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:entradaHero .8s ease forwards;
+
+}
+
+/* El menú aparece primero */
+.animacion-menu{
+
+    animation-delay:.2s;
+
+}
+
+/* Después aparece el contenido */
+.animacion-hero{
+
+    animation-delay:.6s;
+
+}
+
+/* Animación */
+
+@keyframes entradaHero{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =================== SLIDER DEL ENCABEZADO =================== */
+
+.slider-fondo{
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+}
+
+.slide{
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+
+}
+
+.slide.activo{
+
+    opacity: 1;
+
+}
+
 .menu{
 
-    display: flex;     /*Convierte el menú en flexible*/
-    justify-content: space-between;    /*Empuja el logo todo hacia la izquierda y el botón hacia la derecha*/
-    align-items: center;    /*Los deja alineados verticalmente*/
+    display: flex;
 
-    padding: 25px 8%;   /*Le da espacio arriba, abajo y a los costados */
+    justify-content: space-between;
+
+    align-items: center;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 20px auto;
+
+    padding: 14px 28px;
+
+    background: rgba(255,255,255,.18);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,.28);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+}
+
+.menu,
+.contenido-encabezado{
+    position:relative;
+    z-index: 2;   
 
 }
 
@@ -120,12 +234,197 @@ a{
 
 }
 
-/* ================================== LOGO ===========================*/
+/*Lado derecho del menú*/
+
+.menu-derecha{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+/* ================== ENLACE CONTACTO ================== */
+
+.enlace-menu{
+
+   display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 28px;
+
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 999px;
+
+    color: white;
+    text-decoration: none;
+
+    background: transparent;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.enlace-menu:hover{
+
+     background: rgba(255,255,255,.18);
+
+    transform: translateY(-2px);
+
+}
+
+/* =======================================================
+   ANIMACIÓN DE CONTACTO
+======================================================= */
+
+/* Estado inicial */
+.contacto{
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition: opacity .5s ease,
+                transform .5s ease;
+
+}
+
+/* Cuando se muestra */
+.contacto.mostrar{
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+/* =============================== LOGO ===========================*/
+
 .logo{
 
-    font-size: 1.8rem;    /*Hace el texto bastante grande*/
-    font-weight: bold;      /*Lo pone en negrita*/
-    color: var(--color-blanco);    /*Color blanco porque está sobre la imagen*/
+    display: flex;
+
+    flex-direction: column;
+
+    color: var(--color-blanco);
+
+    text-decoration: none;
+
+    overflow: hidden;      /* Evita que el brillo salga del logo */
+    position: relative;    /* Permite mover el brillo */
+
+}
+
+ 
+/*BRILLO DEL LOGO (Simula un reflejo sobre el vidrio)*/
+
+.logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-150%;
+
+    width:50%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.55),
+
+        transparent
+
+    );
+
+    transform:skewX(-40deg);
+
+    animation:brilloLogo 5s infinite;
+
+}
+
+/*ANIMACIÓN DEL BRILLO*/
+
+@keyframes brilloLogo{
+
+    0%{
+
+        left:-150%;
+
+    }
+
+    15%{
+
+        left:170%;
+
+    }
+
+    100%{
+
+        left:170%;
+
+    }
+
+}
+
+.logo-nombre{
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 2.5rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    line-height: 1;
+    color: #ffffff;
+    text-shadow:
+      0 2px 8px rgba(0,0,0,.45),
+      0 0 2px rgba(0,0,0,.30);
+
+
+}
+
+.logo-subtitulo{
+
+    margin-top: 8px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: .75rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: .9;
+    color: rgba(255,255,255,.96);
+    text-shadow: 0 2px 6px rgba(0,0,0,.40);
+
+
+}
+
+.linea-logo{
+
+    width: 90px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,.75);
+
+    margin: 8px 0;
 
 }
 
@@ -347,17 +646,88 @@ a{
 
     box-shadow: var(--sombra);          /*Agrega sombra suave*/
 
-    transition: .3s;     /*animación*/
+    transition: 
+    opacity .6s ease,
+    transform .6s ease;
+
+    transform: translateY(30px) scale(.96); /* Empiezan un poco más abajo */
+         
     cursor: pointer;
+
+    overflow: hidden;      /* Evita que el brillo salga de la tarjeta */
+    position: relative;    /* Permite posicionar el brillo */
+    opacity: 0;             /* Comienzan invisibles */
 
 }
 
-/* ================== EFECTO DE LAS TARJETAS, AL PASAR EL MOUSE ====================*/
+/* Cuando aparecen */
+.tarjeta-producto.aparecer{
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+}
+
+/* ================== EFECTO DE LAS TARJETAS, AL PASAR EL MOUSE O TOCAR LA TARJETA ====================*/
 .tarjeta-producto:hover{
 
     transform: translateY(-10px) scale(1.02);
+    /* Sube un poco y se agranda apenas */
 
-    box-shadow: 0 18px 35px rgba(0,0,0,.18);
+    box-shadow: 0 20px 45px rgba(0,0,0,.18);
+    /* Sombra un poco más intensa */
+
+}
+
+/*EFECTO AL TOCAR UNA TARJETA (CELULAR)*/
+
+.tarjeta-producto:active{
+
+    transform: scale(.98);
+    /* Se hunde apenas al tocar */
+
+    transition:.15s;
+
+}
+
+/* EFECTO DE BRILLO SOBRE EL VIDRIO */
+
+.tarjeta-producto::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+
+}
+
+.tarjeta-producto:hover::before{
+
+    left:160%;
 
 }
 
@@ -586,6 +956,19 @@ a{
 
 }
 
+/*Boton volver al incicio - CELULAR*/
+@media (max-width:768px){
+
+    .boton-volver{
+
+        width:100%;
+
+        margin-bottom:25px;
+
+    }
+
+}
+
 /* ================================= BOTÓN "SOLICITAR PRESUPUESTO" =========================*/
 .boton-principal{
 
@@ -626,9 +1009,7 @@ a{
 
 }
 
-/* ============================= */
-/* TARJETA SOLICITAR PRESUPUESTO */
-/* ============================= */
+
 
 
 
@@ -824,35 +1205,52 @@ a{
     }
 
 /* ======================= RESPONSIVE DEL MODAL =======================*/
+
+/*Modal - celular*/
 @media (max-width:768px){
 
     .modal-contenido{
 
-    grid-template-columns: 1fr;
-    width: 85%;
-    max-height: 75vh;
-    padding: 15px;
-    overflow-y: auto;
-    position: relative;
+    width:92%;                 /* Aprovecha mejor el ancho */
 
-    }
+    max-width:420px;           /* Nunca se hace enorme */
+
+    max-height:92vh;           /* Casi toda la pantalla */
+
+    display:flex;              /* Cambiamos de grid a flex */
+
+    flex-direction:column;     /* Imagen arriba, info abajo */
+
+    overflow:hidden;           /* El modal ya no hace scroll */
+
+    padding:0;
+
+}
 
     #modal-imagen{
 
-        height: 180px;
-        object-fit: contain;
+    width:100%;
 
+    height:210px;
+
+    object-fit:cover;
+
+    min-height:auto;
     }
+
+
 
     .modal-info{
 
-        padding: 10px;
+        padding: 20px 22px;
 
     }
 
     #modal-titulo{
 
-        font-size: 1.3rem;
+        font-size: .92rem;
+        line-height:1.5;
+        margin-bottom:18px;
 
     }
 
@@ -860,6 +1258,20 @@ a{
         font-size: .9rem;
         line-height: 1.4;
     }
+
+    /* La x */
+    .modal-cerrar{
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+    }
+
+
 
 }
 
@@ -952,10 +1364,11 @@ a{
 
     }
 
-    .pedidos-personalizados{
+.pedidos-personalizados{
 
     margin: 50px 15px;
     padding: 30px 20px;
+    background: linear-gradient(135deg, #56b1bdb1, #066791);
 
 }
 
@@ -986,7 +1399,282 @@ a{
 
 }
 
+
 }
+
+}
+
+/* =======================================================
+   CONTACTO
+======================================================= */
+
+.contacto{
+
+    max-width: 1200px;     /*Ancho máx. de la sección*/
+
+    margin: 80px auto;      /*Centra la sección y deja espacio arriba*/
+
+    padding: 0 30px 80px;            /*Espacio interno (laterales y abajo)*/
+
+}
+
+/*Encabezado del contacto (título y descripción)*/
+.encabezado-contacto{           
+
+    text-align: center;            /*Centra todo el texto*/
+
+    max-width: 700px;             /* Evita que el texto quede muy ancho */
+
+    margin: 0 auto 60px;            /* Lo centra y separa de las tarjetas */
+
+}
+
+/*Título principal*/
+.encabezado-contacto h2{
+
+    font-size: 42px;                /* Tamaño del título */
+
+    color: var(--color-texto);           /* Color principal */
+
+    margin: 15px 0;                      /* Espacio arriba y abajo */
+
+}
+
+
+/*Texto descriptivo*/
+.encabezado-contacto p{
+
+    color: #666;                     /* Gris suave */
+
+    line-height: 1.7;                   /* Espacio entre líneas */
+
+    font-size: 18px;                    /* Tamaño del texto */
+
+
+}
+
+/*Cuadrícula donde se acomodan las tarjetas*/
+.cuadricula-contacto{
+
+    display:grid;                           /* Activa CSS Grid */
+ 
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));                      /* Crea automáticamente columnas según el espacio disponible */
+
+    gap:25px;                     /* Separación entre tarjetas */
+
+}
+
+
+/*Tarjeta individual*/
+.tarjeta-contacto{
+
+    background:white;                    /* Fondo blanco */
+
+    padding:35px;                          /* Espacio interno */
+
+    border-radius:20px;                     /* Bordes redondeados */
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);                /* Sombra suave */
+
+    transition:.30s;                        /* Suaviza las animaciones */
+
+}
+
+/*Efecto al pasar el mouse*/
+.tarjeta-contacto:hover{
+
+    transform:translateY(-8px);                  /* La tarjeta sube un poquito */
+
+    box-shadow:0 18px 40px rgba(0,0,0,.12);              /* La sombra aumenta */
+
+}
+
+
+/*Título de cada tarjeta*/
+.tarjeta-contacto h3{
+
+    font-size:22px;                     /* Tamaño del título */
+
+    margin-bottom:15px;                  /* Espacio debajo */
+
+    color:var(--color-texto);
+
+}
+
+
+/*Texto de cada tarjeta*/
+.tarjeta-contacto p{
+
+    color:#666;
+
+    line-height:1.8;                          /* Hace más cómoda la lectura */
+
+}
+
+/* ========== CONTACTO - CELULAR ========== */
+
+@media (max-width:768px){
+
+    .contacto{
+
+        margin: 50px auto;
+
+        padding: 0 20px 50px;
+
+    }
+
+    .encabezado-contacto h2{
+
+        font-size: 2rem;
+
+    }
+
+    .encabezado-contacto p{
+
+        font-size: .95rem;
+
+    }
+
+}
+
+/*Trajetas de contacto*/
+@media (max-width:768px){
+
+    .tarjeta-contacto{
+
+        padding:25px;
+
+    }
+
+    .tarjeta-contacto h3{
+
+        font-size:1.2rem;
+
+    }
+
+}
+
+/* =======================================================
+   BOTÓN FLOTANTE WHATSAPP
+======================================================= */
+
+.whatsapp-flotante{
+
+    position: fixed;                   /* Siempre visible */
+
+    right: 25px;                        /* Separación del borde derecho */
+
+    bottom: 25px;                        /* Separación del borde inferior */
+
+    width: 65px;                          /* Ancho del botón */
+
+    height: 65px;                          /* Alto del botón */
+
+    background: #25D366;                  /* Verde oficial de WhatsApp */
+
+    border-radius: 50%;                        /* Lo convierte en un círculo */
+
+    display: flex;                           /* Centra el ícono */
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+
+    z-index: 999;                                /* Siempre queda por encima del contenido */
+
+    transition: .3s;                                 /* Suaviza el efecto hover */
+
+
+}
+
+/*Tamaño del logo de whatsapp*/
+.whatsapp-flotante img{
+
+    width: 34px;       /*Ancho*/
+
+    height: 34px;             /*Alto*/
+
+}
+
+/* Animación al pasar el mouse */
+.whatsapp-flotante:hover{
+
+    transform: scale(1.10);                     /* Se agranda un poco */
+
+    box-shadow: 0 16px 35px rgba(0,0,0,.30);
+
+}
+
+
+/* Ajustes del botón para celulares */
+@media (max-width:768px){
+
+    .whatsapp-flotante{
+
+        width:70px;                                /* Más grande para tocar con el dedo */
+
+        height:70px;
+
+        right:18px;                                /* Más cerca del borde */
+
+        bottom:18px;
+
+    }
+
+}
+
+/* =======================================================
+   MAPA DE GOOGLE
+   (Ubicación del taller)
+======================================================= */
+
+/* Contenedor del mapa */
+.mapa-contacto{
+
+    margin-top: 50px;          /* Espacio respecto de las tarjetas */
+
+}
+
+/* Título "Cómo llegar" */
+.mapa-contacto h3{
+
+    text-align: center;        /* Centra el título */
+
+    font-size: 28px;           /* Tamaño */
+
+    margin-bottom: 25px;       /* Separación del mapa */
+
+    color: var(--color-texto);
+
+}
+
+/* Mapa */
+.mapa-contacto iframe{
+
+    width: 100%;               /* Ocupa todo el ancho */
+
+    height: 350px;             /* Alto del mapa */
+
+    border: none;              /* Sin borde */
+
+    border-radius: 20px;       /* Bordes redondeados */
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.10);
+    /* Sombra suave */
+
+}
+
+/* ========== MAPA - CELULAR ========== */
+
+@media (max-width:768px){
+
+    .mapa-contacto iframe{
+
+        height: 280px;         /* Un poco más bajo en celulares */
+
+    }
 
 }
 

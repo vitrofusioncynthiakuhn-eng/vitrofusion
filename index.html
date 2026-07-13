@@ -17,17 +17,40 @@
 
              <header class="encabezado" id="inicio">
 
-                <!-- MENÚ DE NAVEGACIÓN-->
-                 <nav class="menu" aria-label="Menú principal">
+                <!-- Imágenes del encabezado -->
+                <div class="slider-fondo">
 
-                    <a href="#inicio" class="logo">
-                        Vitrofusión Cintia
+                  <img src="https://i.pinimg.com/1200x/15/89/40/158940a3fb2f5c261ff5bc2025351d5d.jpg" class="slide activo" alt="Vitrofusión artesanal" loading="lazy">
+                  <img src="img/centro mesa frut..jpg" class="slide" alt="Centro de mesa frutero" loading="lazy">
+                  <img src="img/mariposa.jpg" class="slide" alt="Decoración artesanal" loading="lazy">
+                  <img src="img/porta manguera.jpg" class="slide" alt="Porta manguera" loading="lazy">
+                </div>
+
+                <!-- MENÚ DE NAVEGACIÓN-->
+                 <nav class="menu animacion-menu" aria-label="Menú principal">
+
+                    <a href="#" class="logo">
+                        <span class="logo-nombre">
+                            Cynthia K.
+                        </span>
+
+                    <div class="linea-logo"></div>
+                        <span class="logo-subtitulo">
+                            Estudio de Arte y Vitrofusión
+                        </span>
                     </a>
 
-                    <!--Botón para abrir el catálogo-->
-                    <button class="boton-menu" type="button" data-abrir-catalogo>
-                        💎 Ver Catálogo
-                    </button>
+                <!--Parte del menú donde esta contacto y catálogo-->
+                    <div class="menu-derecha">
+
+                        <button class="boton-menu" type="button" data-abrir-catalogo>
+                            💎 Ver Catálogo
+                        </button>
+
+                        <a href="#" class="enlace-menu" type="button" data-abrir-contacto>
+                            Contacto
+                        </a>
+                    </div>
                     
                  </nav>
 
@@ -65,7 +88,7 @@
                  <!-- ============== PRESENTACIÓN ============== -->
                   <section class="presentacion">
 
-                    <div class="contenido-presentacion">
+                    <div class="contenido-presentacion animacion-hero">
                         <p class="texto-seccion">
                             Trabajo personalizado
                         </p>
@@ -86,16 +109,19 @@
                         algunos de mis trabajos realizados y como guía
                         para futuros pedidos personalizados.
                      </p>
-                  </section>
+                </section>
+                  
 
                    <!-- ============== CATÁLOGO ============== -->
 
                    <section class="catalogo oculto" id="catalogo">
 
                     <div class="encabezado-catalogo">
-                        <button class="boton-volver" type="button" data-cerrar-catalogo>
-                           ⬅ Volver al inicio
+
+                         <button class="boton-volver" type="button" data-cerrar-catalogo>
+                          ⬅ Volver al inicio
                         </button>
+                       
 
                         <p class="texto-seccion">
                             Catálogo
@@ -299,13 +325,7 @@
                         </article>
                         </div>
                      </div>
-            
-                
-                   
-                   
-                   
-
-                   <!-- ========== PEDIDOS PERSONALIZADOS ========== -->
+                     <!-- ========== PEDIDOS PERSONALIZADOS ========== -->
                     <section class="pedidos-personalizados">
                         <div class="contenido-pedidos">
 
@@ -329,8 +349,95 @@
                             Solicitar presupuesto
                         </a>
                     </section>
+                   </section>
+                   
+            
+                
+                   
+                   
+                   
 
-                    <!-- ================= MODAL DEL PRODUCTO ================= -->
+                   
+
+ <!-- ================= CONTACTO ================= -->
+<section class="contacto oculto" id="contacto">
+
+    <div class="encabezado-contacto">
+
+        <button class="boton-volver" type="button" data-cerrar-contacto>
+           ⬅ Volver al inicio
+        </button>
+
+    <p class="texto-seccion">
+        Contáctanos
+    </p>
+
+    <h2>
+        Estamos para ayudarte
+    </h2>
+
+    <p>
+         Si querés realizar un pedido personalizado o consultar por alguna pieza,
+         podés comunicarte a través de cualquiera de estos medios.
+    </p>
+    </div>
+
+    <div class="cuadricula-contacto">
+
+        <div class="tarjeta-contacto">
+
+            <h3>📍 Dirección</h3>
+
+            <p>
+                Av. Maipú 1681
+                <br>
+                Obera, Misiones
+            </p>
+
+        </div>
+
+        <div class="tarjeta-contacto">
+
+            <h3>📞 Teléfono</h3>
+
+            <p>
+                +54 9 3773 43-6905
+            </p>
+
+        </div>
+
+        <div class="tarjeta-contacto">
+
+            <h3>✉ Email</h3>
+
+            <p>
+                vitrofusioncynthiakuhn@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+
+    <!------------------------------- MINI MAPA DENTRO DE CONTACTO --------------------------->
+    <div class="mapa-contacto">
+
+    <h3>
+        📍 Cómo llegar
+    </h3>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.197388134687!2d-55.12156029999999!3d-27.503829100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f8f5275051311b%3A0x9938bd88d104cb47!2sMaip%C3%BA%201681%2C%20N3360%20Ober%C3%A1%2C%20Misiones!5e1!3m2!1ses-419!2sar!4v1783978011898!5m2!1ses-419!2sar"  
+        referrerpolicy="strict-origin-when-cross-origin"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+</section>
+
+
+ <!-- ================= MODAL DEL PRODUCTO ================= -->
 <div class="modal-producto oculto" id="modal-producto">
 
     <div class="modal-contenido">
@@ -364,21 +471,48 @@
     </div>
 
 </div>
+
+<!-- ================= CONTACTO ================= -->
+<section class="contacto oculto" id="contacto">
+
+    <div class="encabezado-contacto">
+
+        
+
+        <p class="texto-seccion">
+            Contacto
+        </p>
+
+        <h2>
+            Estamos para ayudarte
+        </h2>
+
+        <p>
+            Si querés realizar un pedido personalizado o consultar por alguna pieza,
+            podés comunicarte a través de cualquiera de estos medios.
+        </p>
+
+    </div>
+
+</section>
                 
-                </main>
+</main>
 
-                <!-- Archivo JavaScript -->
-                 <script src="script.js?v=2"></script>
+<!-- ================= BOTÓN FLOTANTE WHATSAPP ================= -->
 
-            </body>
+<a href="https://wa.me/5493773436905"
+   class="whatsapp-flotante"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="WhatsApp">
 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+         alt="WhatsApp">
 
+</a>
 
+<!-- Archivo JavaScript -->
+ <script src="script.js?v=2"></script>
 
-
-
-
-
-
-
+</body>
 </html>
