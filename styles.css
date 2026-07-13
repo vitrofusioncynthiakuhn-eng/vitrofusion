@@ -61,6 +61,8 @@ a{
 
     min-height: 40vh;
 
+    max-height: 700px;   /* Nunca será más alto que esto */
+
     position: relative;
 
     overflow: hidden;
@@ -133,6 +135,21 @@ a{
     height: 100%;
 
     z-index: 0;
+
+}
+
+/* Capa oscura sobre las imágenes del slider */
+.slider-fondo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.22);
+
+    pointer-events:none;
 
 }
 
@@ -466,44 +483,28 @@ a{
 }
 
 /* =========================== DESCRIPCIÓN PRINCIPAL ============================*/
-.descripcion{
+.descripcion {
+    max-width: 560px;
 
-    max-width: 700px;
+    margin: 30px auto 0;   /* La centra */
 
-    font-size: 1.1rem;
+    font-size: 1.8rem;
 
-    line-height: 1.8;
+    line-height: 1.9;
 
     margin-bottom: 35px;
 
-}
+    font-weight: 300;          /* Más elegante */
 
-/* =============================== BOTÓN PRINCIPAL (WHATSAPP) ======================*/
-.boton-secundario{
+    font-weight: 300;          /* Más elegante */
 
-    display: inline-block;
-
-    background-color: var(--color-principal);
-
-    color: var(--color-blanco);
-
-    padding: 15px 35px;
-
-    border-radius: var(--radio-bordes);
-
-    transition: .3s;
-
-    font-weight: bold;
+    color: rgba(255,255,255,.94);            /* Blanco un poco más suave */
+    
+    text-shadow: 0 3px 12px rgba(0,0,0,.35);            /* Sombra suave para que destaque sobre cualquier foto */
 
 }
 
-.boton-secundario:hover{
 
-    transform: translateY(-3px);
-
-    box-shadow: var(--sombra);
-
-}
 
 /* ===================================== PRESENTACIÓN (introducción al catálogo) ==============================*/
 .presentacion{
@@ -1288,6 +1289,8 @@ a{
 
         font-size:3rem;
 
+        text-shadow: 0 5px 18px rgba(0,0,0,.45);
+
     }
 
     .presentacion{
@@ -1684,13 +1687,15 @@ a{
 
     .menu{
 
-        width:95%;
+        width:92%;
 
-        padding:18px;
+        padding:10px 24px;
 
         flex-direction:column;   /* Logo arriba */
 
-        gap:20px;
+        gap:15px;
+
+        border-radius: 22px;      /* Bordes un poco más redondos */
 
     }
 
@@ -1700,7 +1705,7 @@ a{
 
         justify-content:center;
 
-        gap:15px;
+        gap:12px;
 
     }
 
@@ -1714,17 +1719,30 @@ a{
 
     .logo-nombre{
 
-        font-size:2rem;
+        font-size:2.5rem;                  /* Tamaño del nombre */
+
 
     }
 
     .logo-subtitulo{
 
-        font-size:.7rem;
+        font-size:.82rem;                   /* Tamaño del subtítulo */
 
-        letter-spacing:2px;
+        letter-spacing:2px;                  /* Separación entre letras */
+
 
     }
 
+    .boton-menu,
+    .enlace-menu{
+
+        padding: 12px 22px;                         /* Tamaño de los botones */
+        font-size: .95rem;
+
+    }
+
+
 }
+
+
 
