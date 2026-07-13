@@ -439,9 +439,7 @@ a{
     align-items: center;               /*Centra todo horizontalmente*/
 
     text-align: center;                     /*Centra el texto*/
-
-    min-height: calc(100vh - 90px);              /*ocupa toda la pantalla menos el espacio del menú*/
-
+    min-height: 65vh;                 /* Altura del contenido principal del encabezado */
     padding: 20px;
 
 }
@@ -1673,6 +1671,58 @@ a{
     .mapa-contacto iframe{
 
         height: 280px;         /* Un poco más bajo en celulares */
+
+    }
+
+}
+
+/* =======================================================
+   ENCABEZADO - CELULAR
+======================================================= */
+
+@media (max-width:768px){
+
+    .menu{
+
+        width:95%;
+
+        padding:18px;
+
+        flex-direction:column;   /* Logo arriba */
+
+        gap:20px;
+
+    }
+
+    .menu-derecha{
+
+        width:100%;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+    .logo{
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .logo-nombre{
+
+        font-size:2rem;
+
+    }
+
+    .logo-subtitulo{
+
+        font-size:.7rem;
+
+        letter-spacing:2px;
 
     }
 
