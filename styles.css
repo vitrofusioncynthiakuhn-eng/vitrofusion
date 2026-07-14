@@ -478,7 +478,15 @@ a{
 
     font-size: 4rem;
 
+    color: white;
+
     margin-bottom: 20px;
+
+    text-shadow:
+        0 4px 10px rgba(0,0,0,.30),
+        0 10px 30px rgba(0,0,0,.35);
+
+     letter-spacing: 2px;
 
 }
 
@@ -656,6 +664,66 @@ a{
     overflow: hidden;      /* Evita que el brillo salga de la tarjeta */
     position: relative;    /* Permite posicionar el brillo */
     opacity: 0;             /* Comienzan invisibles */
+
+}
+
+/* CHIP "VER DETALLES" */
+
+.chip-detalle{
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.20);      /* Blanco transparente */
+
+    backdrop-filter: blur(12px);            /* Efecto vidrio */
+
+    border: 1px solid rgba(255,255,255,.35);
+
+    color: white;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    letter-spacing: .4px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+
+    z-index: 5;
+
+    animation: respirarChip 2.8s ease-in-out infinite;
+
+}
+
+/* ANIMACIÓN DEL CHIP */
+
+@keyframes respirarChip{
+
+    0%{
+
+        transform: translateY(0);
+
+    }
+
+    50%{
+
+        transform: translateY(-4px);
+
+    }
+
+    100%{
+
+        transform: translateY(0);
+
+    }
 
 }
 
@@ -1288,8 +1356,13 @@ a{
     #titulo-principal{
 
         font-size:3rem;
+        color: white;
 
-        text-shadow: 0 5px 18px rgba(0,0,0,.45);
+        text-shadow:
+        0 4px 10px rgba(0,0,0,.30),
+        0 10px 30px rgba(0,0,0,.35);
+
+     letter-spacing: 2px;
 
     }
 
