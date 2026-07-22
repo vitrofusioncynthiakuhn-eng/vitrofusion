@@ -703,6 +703,46 @@ a{
 
 }
 
+@media (max-width:768px){
+
+    .chip-detalle{
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.20);      /* Blanco transparente */
+
+    backdrop-filter: blur(12px);            /* Efecto vidrio */
+
+    border: 1px solid rgba(255,255,255,.35);
+
+    color: white;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    letter-spacing: .4px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+
+    z-index: 5;
+
+    animation: respirarChip 2.8s ease-in-out infinite;
+    }
+
+}
+
+    
+
+
 /* ANIMACIÓN DEL CHIP */
 
 @keyframes respirarChip{
@@ -1410,6 +1450,8 @@ a{
 
     }
 
+    
+
 @media (max-width:768px){
 
     .tarjeta-presupuesto .informacion-producto{
@@ -1437,6 +1479,10 @@ a{
         height: 160px;
 
     }
+
+    
+
+
 
 .pedidos-personalizados{
 
