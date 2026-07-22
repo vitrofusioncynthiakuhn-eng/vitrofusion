@@ -709,29 +709,34 @@ a{
 
     position: absolute;
 
-    top: 15px;
+    top: 10px;
 
-    left: 15px;
+    left: 10px;
 
-    padding: 8px 16px;
+    padding: 4px 10px;
 
-    border-radius: 50px;
+    max-width: max-content;
 
-    background: rgba(255,255,255,.20);      /* Blanco transparente */
+    white-space: nowrap;           /*Evita que el "ver detalles" se parta en dos renglones, manteniendo el chip horiz. y bajito*/
 
-    backdrop-filter: blur(12px);            /* Efecto vidrio */
+    border-radius: 20px;
 
-    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255, 0.35);   
+    
+    
+    backdrop-filter: blur(5px);
 
-    color: white;
+    -webkit-backdrop-filter: blur(5px);          /* Para aue fucnione el efecto vidrio también en !phones (safari)*/
 
-    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,0.5);
 
-    font-weight: 600;
+    color: #ffffff;
 
-    letter-spacing: .4px;
+    font-size: 0.72rem;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    font-weight: 500;
+
+    box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
 
     z-index: 5;
 
