@@ -591,352 +591,379 @@ a{
 
 }
 
-/* ============================== CATÁLOGO =============
-============ (contenedor principal de los productos) ========*/
+/* =====================================================
+   CATÁLOGO
+===================================================== */
+
 .catalogo{
-
     max-width: 1200px;
-
-    margin: 80px auto;
-
-    padding: 0 30px;
-
+    margin: 0 auto;
+    padding: 45px 30px 0;
 }
 
-/*Encabezado del catálogo*/
+
+/* ================= ENCABEZADO ================= */
+
 .encabezado-catalogo{
-
-    margin-bottom: 60px;
-
+    max-width: 800px;
+    margin-bottom: 70px;
 }
 
-/*El título*/
 .encabezado-catalogo h2{
-
-    font-size: 2.5rem;
-
-    margin-bottom: 15px;
-
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--color-texto);
 }
 
-/*El texto*/
-.encabezado-catalogo p{
-
-    max-width: 700px;
-
+.encabezado-catalogo > p:last-child{
+    color: #666;
+    font-size: 1rem;
     line-height: 1.8;
-
 }
 
-/* ============================== CUADRÍCULA PRODUCTOS (organización de las tarjetas) ======*/
+
+/* ================= CATEGORÍAS ================= */
+
+.categoria{
+    margin-bottom: 90px;
+}
+
+.titulo-categoria{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.titulo-categoria > span{
+    min-width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(95,141,122,.12);
+    color: var(--color-principal);
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.titulo-categoria h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    color: var(--color-texto);
+}
+
+
+/* ================= GRILLA ================= */
+
 .cuadricula-productos{
-
-    display: grid;       /*Organiza los productos como una cuadrícula*/
-
-    grid-template-columns: repeat(3, 1fr);        /*Crea 3 columnas del mismo tamaño*/
-
-    gap: 30px;      /*Deja espacio entre las tarjetas*/
-
-    margin-top: 40px;        /*Separa las tarjetas del título de la categoría*/
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 }
 
-/* ========================== TARJETAS PRODUCTOS =================
-======== (diseño de cada producto del catálogo)========*/
+
+/* ================= TARJETA ================= */
+
 .tarjeta-producto{
+    position: relative;
 
-    background-color: var(--color-blanco);      /*hace que cada tarjeta tenga fondo de color blanco*/
-
-    border-radius: var(--radio-bordes);         /*Redondea las esquinas*/
-
-    overflow: hidden;          /*Hace que la imagen tambien respete las esquinas redondeas, si no estaria, la imá. se saldria del borde*/
-
-    box-shadow: var(--sombra);          /*Agrega sombra suave*/
-
-    transition: 
-    opacity .6s ease,
-    transform .6s ease;
-
-    transform: translateY(30px) scale(.96); /* Empiezan un poco más abajo */
-         
-    cursor: pointer;
-
-    overflow: hidden;      /* Evita que el brillo salga de la tarjeta */
-    position: relative;    /* Permite posicionar el brillo */
-    opacity: 0;             /* Comienzan invisibles */
-
-}
-
-/* CHIP "VER DETALLES" */
-
-.chip-detalle{
-
-    position: absolute;
-
-    top: 15px;
-
-    left: 15px;
-
-    padding: 8px 16px;
-
-    border-radius: 50px;
-
-    background: rgba(255,255,255,.20);      /* Blanco transparente */
-
-    backdrop-filter: blur(12px);            /* Efecto vidrio */
-
-    border: 1px solid rgba(255,255,255,.35);
-
-    color: white;
-
-    font-size: .85rem;
-
-    font-weight: 600;
-
-    letter-spacing: .4px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
-
-    z-index: 5;
-
-    animation: respirarChip 2.8s ease-in-out infinite;
-
-}
-
-@media (max-width:768px){
-
-    .chip-detalle{
-
-    position: absolute;
-
-    top: 10px;
-
-    left: 10px;
-
-    padding: 4px 10px;
-
-    max-width: max-content;
-
-    white-space: nowrap;           /*Evita que el "ver detalles" se parta en dos renglones, manteniendo el chip horiz. y bajito*/
+    background: rgba(255,255,255,.96);
 
     border-radius: 20px;
 
-    background: rgba(255,255,255, 0.35);   
-    
-    
-    backdrop-filter: blur(5px);
+    overflow: hidden;
 
-    -webkit-backdrop-filter: blur(5px);          /* Para aue fucnione el efecto vidrio también en !phones (safari)*/
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.08);
 
-    border: 1px solid rgba(255,255,255,0.5);
+    cursor: pointer;
 
-    color: #ffffff;
-
-    font-size: 0.72rem;
-
-    font-weight: 500;
-
-    box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
-
-    z-index: 5;
-
-    animation: respirarChip 2.8s ease-in-out infinite;
-    }
-
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+        opacity: 1;
+        transform: translateY(0);
 }
 
-    
-
-
-/* ANIMACIÓN DEL CHIP */
-
-@keyframes respirarChip{
-
-    0%{
-
-        transform: translateY(0);
-
-    }
-
-    50%{
-
-        transform: translateY(-4px);
-
-    }
-
-    100%{
-
-        transform: translateY(0);
-
-    }
-
-}
-
-/* Cuando aparecen */
 .tarjeta-producto.aparecer{
-
     opacity: 1;
-
-    transform: translateY(0) scale(1);
-
+    transform: translateY(0);
 }
 
-/* ================== EFECTO DE LAS TARJETAS, AL PASAR EL MOUSE O TOCAR LA TARJETA ====================*/
 .tarjeta-producto:hover{
-
-    transform: translateY(-10px) scale(1.02);
-    /* Sube un poco y se agranda apenas */
-
-    box-shadow: 0 20px 45px rgba(0,0,0,.18);
-    /* Sombra un poco más intensa */
-
+    transform: translateY(-7px);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.14);
 }
 
-/*EFECTO AL TOCAR UNA TARJETA (CELULAR)*/
 
-.tarjeta-producto:active{
+/* ================= IMAGEN ================= */
 
-    transform: scale(.98);
-    /* Se hunde apenas al tocar */
-
-    transition:.15s;
-
-}
-
-/* EFECTO DE BRILLO SOBRE EL VIDRIO */
-
-.tarjeta-producto::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    background:linear-gradient(
-
-        120deg,
-
-        transparent,
-
-        rgba(255,255,255,.45),
-
-        transparent
-
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.8s;
-
-}
-
-.tarjeta-producto:hover::before{
-
-    left:160%;
-
-}
-
-/* ========================== IMAGEN DEL PRODUCTO ===================*/
 .tarjeta-producto img{
+    width: 100%;
+    height: 300px;
 
-    width: 100%;    /*La imág. ocupa todo el ancho*/
+    object-fit: contain;
 
-    height: 250px;           /*Todas las imág. tendrán la misma altura, asi quedan parejas las tarjetas*/
+    padding: 12px;
 
-    object-fit: cover; 
-    transition: .4s;      /*Hace que la imág. se recorte automaticam. sin deformarse, para que se vean iguales y lindas*/
+    background: #f8f5f0;
 
+    transition: transform .45s ease;
 }
 
 .tarjeta-producto:hover img{
-
-    transform: scale(1.06);
-
+    transform: scale(1.04);
 }
 
-/* ========================= INFORMACIÓN DEL PRODUCTO =======================*/
+
+/* ================= CHIP ================= */
+
+.chip-detalle{
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    z-index: 3;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.82);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: #4f655d;
+
+    font-size: .78rem;
+    font-weight: 600;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.10);
+}
+
+
+/* ================= INFORMACIÓN ================= */
+
 .informacion-producto{
-
-    padding: 20px;
-
-}
-
-
-/*============= Contenido de las tarjetas =============*/
-.informacion-producto h4{
-
-    margin-top: 10px;
-    text-align: center;
-    font-size: 1.2rem;
-
+    padding: 18px 18px 20px;
 }
 
 .informacion-producto .etiqueta{
+    margin-bottom: 6px;
 
-    text-align: center;
-    color: var(--color-principal);
-    font-weight: bold;
-
-}
-
-.informacion-producto p:not(.etiqueta){
-
-    display: none;
-
-}
-
-.informacion-producto strong{
-
-    display: none;
-
-}
-
-/* ============================ TÍTULO DE LA CATEGORÍA ============
-========== (número y nombre de la categoría) =========*/
-.titulo-categoria{
-
-    display: flex;         /*Pone el numero y el título uno alado del otro*/
-
-    align-items: center;
-
-    gap: 15px;                    /*Deja espacio entre el número y el texto*/
-
-    margin-bottom: 30px;         /*Separa el título de las tarjetas*/
-
-}
-
-/* ========================== NÚMERO DE LA CATEGORÍA =======================*/
-.titulo-categoria span{
-
-    font-size: 2rem;
-
-    font-weight: bold;
+    text-align: left;
 
     color: var(--color-principal);
 
+    font-size: .75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+.informacion-producto h4{
+    margin: 0;
 
-/* ================================= NOMBRE DE LA CATEGORÍA ===================*/
-.titulo-categoria h3{
+    font-family: 'Cormorant Garamond', serif;
 
-    font-size: 2rem;
+    font-size: 1.45rem;
+    line-height: 1.2;
 
     color: var(--color-texto);
+}
+
+
+/* La descripción y consulta aparecen solo en el modal */
+
+.informacion-producto p:not(.etiqueta),
+.informacion-producto strong{
+    display: none;
+}
+
+
+/* ================= COLECCIÓN NAVIDAD ================= */
+
+.titulo-navidad{
+    align-items: flex-start;
+}
+
+.etiqueta-temporada{
+    display: inline-block;
+
+    margin-bottom: 6px;
+
+    padding: 5px 11px;
+
+    border-radius: 50px;
+
+    background: rgba(95,141,122,.10);
+
+    color: var(--color-principal);
+
+    font-size: .68rem;
+    font-weight: 700;
+
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+
+/* ================= CATEGORÍA VACÍA ================= */
+
+.categoria-vacia{
+    padding: 35px 25px;
+
+    border: 1px dashed rgba(95,141,122,.35);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.55);
+
+    text-align: center;
+}
+
+.categoria-vacia p{
+    margin: 0;
+
+    color: #777;
+
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CATÁLOGO - TABLET
+===================================================== */
+
+@media (max-width: 900px){
+
+    .cuadricula-productos{
+        grid-template-columns: repeat(2, 1fr);
+    }
 
 }
 
-/* ============================ SEPARACIÓN DE LAS CATEGORÍAS =========================*/
-.categoria{
 
-    margin-bottom: 80px;
+/* =====================================================
+   CATÁLOGO - CELULAR
+===================================================== */
+
+@media (max-width: 768px){
+
+    .catalogo{
+        margin: 45px auto;
+        padding: 0 18px;
+    }
+
+    .encabezado-catalogo{
+        margin-bottom: 50px;
+    }
+
+    .encabezado-catalogo h2{
+        font-size: 2.2rem;
+    }
+
+    .encabezado-catalogo > p:last-child{
+        font-size: .92rem;
+    }
+
+    .categoria{
+        margin-bottom: 60px;
+    }
+
+    .titulo-categoria{
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .titulo-categoria > span{
+        min-width: 38px;
+        height: 38px;
+
+        font-size: .82rem;
+    }
+
+    .titulo-categoria h3{
+        font-size: 1.65rem;
+    }
+
+    .cuadricula-productos{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .tarjeta-producto{
+        border-radius: 15px;
+    }
+
+    .tarjeta-producto img{
+    height: 190px;
+    padding: 8px;
+}
+
+    .informacion-producto{
+        padding: 12px;
+    }
+
+    .informacion-producto .etiqueta{
+        font-size: .62rem;
+        margin-bottom: 4px;
+    }
+
+    .informacion-producto h4{
+        font-size: 1.05rem;
+    }
+
+    .chip-detalle{
+        top: 8px;
+        left: 8px;
+
+        padding: 4px 8px;
+
+        font-size: .62rem;
+    }
+
+    .categoria-vacia{
+        padding: 25px 18px;
+    }
+
+    .categoria-vacia p{
+        font-size: .88rem;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES MUY PEQUEÑOS
+===================================================== */
+
+@media (max-width: 380px){
+
+    .cuadricula-productos{
+        gap: 10px;
+    }
+
+    .tarjeta-producto img{
+        height: 145px;
+    }
+
+    .informacion-producto h4{
+        font-size: .95rem;
+    }
 
 }
 
@@ -1037,27 +1064,34 @@ a{
 
 /* ================================ BOTÓN "VOLVER AL INCICIO" =====================*/
 .boton-volver{
+    display: inline-flex;
 
-    display: inline-block;
+    align-items: center;
+    justify-content: center;
 
-    background-color: transparent;
+    background: transparent;
 
     color: var(--color-principal);
 
-    border: 2px solid var(--color-principal);
+    border: 1px solid rgba(95,141,122,.45);
 
-    padding: 10px 22px;
+    padding: 10px 18px;
 
-    border-radius: var(--radio-bordes);
+    border-radius: 50px;
 
-    font-weight: bold;
+    font-size: .9rem;
+    font-weight: 600;
 
     cursor: pointer;
 
     transition: .3s;
 
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+}
 
+.boton-volver:hover{
+    background: var(--color-principal);
+    color: white;
 }
 
 .boton-volver:hover{
@@ -1073,9 +1107,9 @@ a{
 
     .boton-volver{
 
-        width:100%;
+        width: auto;
 
-        margin-bottom:25px;
+        margin-bottom: 30px;
 
     }
 
@@ -1125,411 +1159,324 @@ a{
 
 
 
-/* ================================= MODAL DEL PRODUCTO ================================*/
+/* =====================================================
+   MODAL DEL PRODUCTO
+===================================================== */
+
 .modal-producto{
-
     position: fixed;
-
     inset: 0;
 
-    background: rgba(0,0,0,.65);
+    background: rgba(20, 24, 22, .68);
 
     display: flex;
-
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    padding: 24px;
 
     z-index: 9999;
 
-
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-/* ==================== CONTENIDO DEL MODAL ====================*/
-.modal-contenido{
 
-    background: var(--color-blanco);
+/* ================= CONTENEDOR ================= */
+
+.modal-contenido{
+    position: relative;
 
     width: 100%;
+    max-width: 940px;
+    max-height: 88vh;
 
-    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1.08fr .92fr;
 
-    max-height: 85vh;
+    background: #fff;
 
-    border-radius: 20px;
+    border-radius: 28px;
 
     overflow: hidden;
 
-    display: grid;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.28);
 
-    grid-template-columns: 1fgitr 1fr;
+    animation: aparecerModal .35s ease;
+}
 
-    box-shadow: 0 20px 50px rgba(0,0,0,.30);
 
-    position: relative;
+/* ================= ANIMACIÓN ================= */
+
+@keyframes aparecerModal{
+
+    from{
+        opacity: 0;
+        transform: translateY(20px) scale(.98);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 
 }
 
-/* ======================= IMAGEN DEL MODAL =======================*/
+
+/* ================= IMAGEN ================= */
+
 #modal-imagen{
-
     width: 100%;
-
     height: 100%;
+    min-height: 520px;
 
-    object-fit: cover;
+    object-fit: contain;
 
-    min-height: 320px;
+    padding: 28px;
 
+    background:
+        linear-gradient(
+            145deg,
+            #f8f5f0,
+            #f2eee8
+        );
 }
 
-/* ======================= INFORMACIÓN DEL MODAL =======================*/
+
+/* ================= INFORMACIÓN ================= */
+
 .modal-info{
-
-    padding: 40px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
+    padding: 52px 46px;
 }
 
-/* Categoría */
+
+/* Etiqueta */
+
 .modal-etiqueta{
+    width: fit-content;
+
+    margin-bottom: 14px;
+
+    padding: 6px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(95,141,122,.10);
 
     color: var(--color-principal);
 
-    font-weight: bold;
+    font-size: .72rem;
+    font-weight: 700;
 
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 15px;
-
 }
+
 
 /* Título */
+
 #modal-titulo{
+    margin-bottom: 18px;
 
-    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
 
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    line-height: 1.05;
 
+    color: var(--color-texto);
 }
+
 
 /* Descripción */
+
 #modal-descripcion{
+    margin-bottom: 24px;
 
-    line-height: 1.8;
+    color: #666;
 
-    margin-bottom: 25px;
-
+    font-size: .98rem;
+    line-height: 1.75;
 }
 
-/* Precio */
-#modal-precio{
 
-    font-size: 1.6rem;
+/* Consultar pedido */
+
+#modal-precio{
+    display: inline-block;
+
+    margin-bottom: 22px;
 
     color: var(--color-principal);
 
-    margin-bottom: 30px;
+    font-size: .92rem;
+    font-weight: 700;
 
+    letter-spacing: .4px;
 }
 
-/* ================= MENSAJE DEL MODAL ================= */
+
+/* Texto final */
+
 .mensaje-modal{
+    margin-top: 18px;
 
-    margin-top: 25px;
+    color: #888;
 
-    font-size: .85rem;
-
-    color: #7a7a7a;
+    font-size: .78rem;
+    line-height: 1.5;
 
     text-align: center;
 
-    font-style: italic;
+    font-style: normal;
 }
 
-/* ======================= BOTÓN CERRAR MODAL =======================*/
-.modal-cerrar{
 
+/* ================= CERRAR ================= */
+
+.modal-cerrar{
     position: absolute;
 
-    top: 8px;
+    top: 16px;
+    right: 16px;
 
-    right: 8px;
+    width: 42px;
+    height: 42px;
 
-    width: 35px;
-
-    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border: none;
-
     border-radius: 50%;
 
-    background: var(--color-principal);
+    background: rgba(255,255,255,.92);
 
-    color: var(--color-blanco);
+    color: #444;
 
-    font-size: 20px;
+    font-size: 18px;
 
     cursor: pointer;
 
-    transition: .3s;
+    box-shadow: 0 5px 18px rgba(0,0,0,.12);
+
     z-index: 10;
 
+    transition: .3s;
 }
 
-/* Efecto al pasar el mouse */
 .modal-cerrar:hover{
-
-    transform: rotate(90deg) scale(1.1);
-
+    transform: rotate(90deg);
+    background: var(--color-principal);
+    color: white;
 }
 
-.informacion-producto p:not(.etiqueta){
 
-    display: none;
+/* =====================================================
+   MODAL - CELULAR
+===================================================== */
 
-}
+@media (max-width: 768px){
 
-.informacion-producto strong{
-
-    display: none;
-
-}
-
-.informacion-producto{
-
-        padding: 12px;
-
+    .modal-producto{
+        padding: 14px;
     }
-
-
-    .informacion-producto h4{
-
-        font-size: 1rem;
-        margin-top: 8px;
-        line-height: 1.3;
-
-    }
-
-/* ======================= RESPONSIVE DEL MODAL =======================*/
-
-/*Modal - celular*/
-@media (max-width:768px){
 
     .modal-contenido{
+        max-width: 430px;
+        max-height: 94vh;
 
-    width:92%;                 /* Aprovecha mejor el ancho */
+        display: flex;
+        flex-direction: column;
 
-    max-width:420px;           /* Nunca se hace enorme */
+        border-radius: 22px;
 
-    max-height:92vh;           /* Casi toda la pantalla */
-
-    display:flex;              /* Cambiamos de grid a flex */
-
-    flex-direction:column;     /* Imagen arriba, info abajo */
-
-    overflow:hidden;           /* El modal ya no hace scroll */
-
-    padding:0;
-
-}
-
-    #modal-imagen{
-
-    width:100%;
-
-    height:210px;
-
-    object-fit:cover;
-
-    min-height:auto;
+        overflow-y: auto;
     }
 
+    #modal-imagen{
+        width: 100%;
+        height: 260px;
+        min-height: 260px;
 
+        padding: 16px;
+    }
 
     .modal-info{
+        padding: 24px 22px 26px;
+    }
 
-        padding: 20px 22px;
-
+    .modal-etiqueta{
+        font-size: .65rem;
     }
 
     #modal-titulo{
-
-        font-size: .92rem;
-        line-height:1.5;
-        margin-bottom:18px;
-
+        font-size: 1.8rem;
+        margin-bottom: 14px;
     }
 
     #modal-descripcion{
         font-size: .9rem;
-        line-height: 1.4;
+        line-height: 1.6;
+        margin-bottom: 18px;
     }
 
-    /* La x */
+    #modal-precio{
+        font-size: .85rem;
+        margin-bottom: 18px;
+    }
+
     .modal-cerrar{
+        top: 12px;
+        right: 12px;
 
-    top:15px;
-
-    right:15px;
-
-    width:42px;
-
-    height:42px;
+        width: 38px;
+        height: 38px;
     }
-
-
 
 }
 
 
-/* ======================================== RESPONSIVE (adaptación para telefono y celulares) ==================*/
-@media (max-width:768px){
+/* ============== BOTÓN CONSULTA DEL MODAL ============== */
 
+.boton-consulta-modal{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    .cuadricula-productos{
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-    #titulo-principal{
-
-        font-size:3rem;
-        color: white;
-
-        text-shadow:
-        0 4px 10px rgba(0,0,0,.30),
-        0 10px 30px rgba(0,0,0,.35);
-
-     letter-spacing: 2px;
-
-    }
-
-    .presentacion{
-
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-
-    }
-
-    .presentacion h2{
-    font-size: 2.2rem;
-    line-height: 1.2;
-    }
-
-
-    .contenido-presentacion,
-    .descripcion-presentacion{
     width: 100%;
-    }
 
-    /* ========== TARJETAS - CELULAR ============*/
-    .informacion-producto p:nth-of-type(2){
-    display: none;
-    font-size: .9rem;
-    line-height: 1.4;
-    }
+    padding: 14px 20px;
 
+    border-radius: 50px;
 
-.informacion-producto strong{
-    display: none;
+    background: var(--color-principal);
+
+    color: white;
+
+    font-size: .92rem;
+    font-weight: 700;
+
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 24px rgba(95,141,122,.25);
+
+    transition: .3s;
 }
 
-.informacion-producto h3{
-   white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    line-height: 1.3; 
+.boton-consulta-modal:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(95,141,122,.35);
 }
 
-.tarjeta-producto img{
-
-        height: 160px;
-
-    }
-
-    
-
-@media (max-width:768px){
-
-    .tarjeta-presupuesto .informacion-producto{
-        padding: 15px;
-    }
-
-
-    .tarjeta-presupuesto h4{
-        font-size: 1.1rem;
-    }
-
-
-    .tarjeta-presupuesto .informacion-producto p:not(.etiqueta){
-        font-size: .9rem;
-        line-height: 1.4;
-    }
-
-
-    .tarjeta-presupuesto strong{
-        font-size: 1rem;
-    }
-
-    .tarjeta-producto img{
-
-        height: 160px;
-
-    }
-
-    
-
-
-
-.pedidos-personalizados{
-
-    margin: 50px 15px;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, #56b1bdb1, #066791);
-
-}
-
-
-.pedidos-personalizados h2{
-
-    font-size: 1.7rem;
-    line-height: 1.2;
-    margin-bottom: 15px;
-    white-space: normal;
-
-}
-
-
-.pedidos-personalizados p{
-
-    font-size: .95rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-
-}
-
-
-.pedidos-personalizados .boton-principal{
-
-    padding: 12px 25px;
-    font-size: .95rem;
-
-}
-
-
-}
-
-}
 
 /* =======================================================
    CONTACTO
@@ -1679,7 +1626,17 @@ a{
 
     }
 
+    .boton-consulta-modal{
+
+        padding: 12px 18px;
+
+        font-size: .9rem;
+
+    }
+
 }
+
+
 
 /* =======================================================
    BOTÓN FLOTANTE WHATSAPP
@@ -1879,5 +1836,234 @@ a{
 
 }
 
+.categoria-vacia{
+    background: rgba(255,255,255,.65);
+    border: 1px dashed rgba(95,141,122,.35);
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.categoria-vacia p{
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ================= NAVIDAD ================= */
+
+.etiqueta-temporada{
+
+    display: inline-block;
+
+    margin-bottom: 6px;
+
+    padding: 5px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(95,141,122,.10);
+
+    color: var(--color-principal);
+
+    font-size: .75rem;
+
+    font-weight: 600;
+
+    letter-spacing: .8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.titulo-navidad{
+
+    align-items: flex-start;
+
+}
+
+
+
+/* =====================================================
+   CÓMO ENCARGAR
+===================================================== */
+
+.como-encargar{
+    margin: 100px auto;
+    padding: 70px 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.92),
+            rgba(247,244,239,.96)
+        );
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.06);
+}
+
+
+.encabezado-como-encargar{
+    max-width: 700px;
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+.encabezado-como-encargar h2{
+    margin-bottom: 16px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 2.7rem;
+    line-height: 1.1;
+
+    color: var(--color-texto);
+}
+
+
+.encabezado-como-encargar > p:last-child{
+    color: #707070;
+
+    font-size: .98rem;
+    line-height: 1.7;
+}
+
+
+/* ================= PASOS ================= */
+
+.pasos-encargo{
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+.paso-encargo{
+    position: relative;
+
+    padding: 30px 25px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border:
+        1px solid rgba(95,141,122,.10);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.05);
+
+    transition: .3s;
+}
+
+
+.paso-encargo:hover{
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.09);
+}
+
+
+/* Número */
+
+.numero-paso{
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(95,141,122,.12);
+
+    color:
+        var(--color-principal);
+
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+
+/* Título */
+
+.paso-encargo h3{
+    margin-bottom: 12px;
+
+    font-family:
+        'Cormorant Garamond', serif;
+
+    font-size: 1.55rem;
+
+    color:
+        var(--color-texto);
+}
+
+
+/* Texto */
+
+.paso-encargo p{
+    color: #747474;
+
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CÓMO ENCARGAR - CELULAR
+===================================================== */
+
+@media (max-width: 768px){
+
+    .como-encargar{
+        margin: 65px 0;
+
+        padding: 45px 20px;
+
+        border-radius: 22px;
+    }
+
+
+    .encabezado-como-encargar{
+        margin-bottom: 35px;
+    }
+
+
+    .encabezado-como-encargar h2{
+        font-size: 2rem;
+    }
+
+
+    .pasos-encargo{
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .paso-encargo{
+        padding: 24px 20px;
+    }
+
+}
 
 

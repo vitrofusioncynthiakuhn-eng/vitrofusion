@@ -1,140 +1,260 @@
-/* ================= MOSTRAR Y OCULTAR CATÁLOGO ================
-========= (controla el cambio entre Inicio y Catálogo ==========*/
-const botonCatalogo = document.querySelector("[data-abrir-catalogo]");          /*Guarda el botón catálogo*/
-const botonVolver = document.querySelector("[data-cerrar-catalogo]");         /*Guarda el botón volver*/
+/* =========================================================
+   ELEMENTOS PRINCIPALES
+========================================================= */
 
-const encabezado = document.querySelector(".encabezado");                    /*Guarda todo el hero*/
-const presentacion = document.querySelector(".presentacion");            /*Guarda la parte que dice: trabajo personalizado.....*/
-const catalogo = document.querySelector("#catalogo");   
+const botonCatalogo = document.querySelector("[data-abrir-catalogo]");
+const botonVolver = document.querySelector("[data-cerrar-catalogo]");
+
 const botonContacto = document.querySelector("[data-abrir-contacto]");
 const botonVolverContacto = document.querySelector("[data-cerrar-contacto]");
+
+const encabezado = document.querySelector(".encabezado");
+const presentacion = document.querySelector(".presentacion");
+
+const catalogo = document.querySelector("#catalogo");
 const contacto = document.querySelector("#contacto");
 
-/* ================= ELEMENTOS DEL MODAL ================= */
+
+/* =========================================================
+   MODAL
+========================================================= */
+
 const modalProducto = document.querySelector("#modal-producto");
 
 const botonCerrarModal = document.querySelector(".modal-cerrar");
 
 const imagenModal = document.querySelector("#modal-imagen");
-
 const etiquetaModal = document.querySelector(".modal-etiqueta");
-
 const tituloModal = document.querySelector("#modal-titulo");
-
 const descripcionModal = document.querySelector("#modal-descripcion");
-
 const precioModal = document.querySelector("#modal-precio");
 
+const botonConsultaModal =
+    document.querySelector("#boton-consulta-modal");
 
-/* Todas las tarjetas del catálogo */
-const tarjetas = document.querySelectorAll(".tarjeta-producto");//Guarda toda la sección del catálogo*/
+
+/* Todas las tarjetas */
+
+const tarjetas =
+    document.querySelectorAll(".tarjeta-producto");
 
 
-/* ===================== ABRIR EL CATÁLOGO ================
-============ (muestra el catálogo y oculta el inicio) =========*/
-botonCatalogo.addEventListener("click", function () {
+/* =========================================================
+   ABRIR CATÁLOGO
+========================================================= */
 
-    encabezado.classList.add("oculto");
+if(botonCatalogo){
 
-    presentacion.classList.add("oculto");
+    botonCatalogo.addEventListener("click", function(){
 
-    catalogo.classList.remove("oculto");
+        encabezado.classList.add("oculto");
+        presentacion.classList.add("oculto");
 
-    tarjetas.forEach(function(tarjeta, indice){
+        contacto.classList.add("oculto");
 
-        tarjeta.classList.remove("aparecer");
+        catalogo.classList.remove("oculto");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   VOLVER AL INICIO
+========================================================= */
+
+if(botonVolver){
+
+    botonVolver.addEventListener("click", function(){
+
+        catalogo.classList.add("oculto");
+
+        encabezado.classList.remove("oculto");
+        presentacion.classList.remove("oculto");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   ABRIR CONTACTO
+========================================================= */
+
+if(botonContacto){
+
+    botonContacto.addEventListener("click", function(evento){
+
+        evento.preventDefault();
+
+        encabezado.classList.add("oculto");
+        presentacion.classList.add("oculto");
+        catalogo.classList.add("oculto");
+
+        contacto.classList.remove("oculto");
 
         setTimeout(function(){
+            contacto.classList.add("mostrar");
+        }, 20);
 
-            tarjeta.classList.add("aparecer");
-
-        }, indice * 120);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     });
 
-});
+}
 
-/* ======================= VOLVER AL INICIO (oculta el catálogo y muestra el inicio)*/
-botonVolver.addEventListener("click", function () {
 
-    catalogo.classList.add("oculto");
+/* =========================================================
+   VOLVER DESDE CONTACTO
+========================================================= */
 
-    encabezado.classList.remove("oculto");
+if(botonVolverContacto){
 
-    presentacion.classList.remove("oculto");
+    botonVolverContacto.addEventListener("click", function(){
 
-});
+        contacto.classList.remove("mostrar");
+        contacto.classList.add("oculto");
 
-/* ===================== ABRIR CONTACTO ===================== */
-botonContacto.addEventListener("click", function () {
+        encabezado.classList.remove("oculto");
+        presentacion.classList.remove("oculto");
 
-    encabezado.classList.add("oculto");
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-    presentacion.classList.add("oculto");
+    });
 
-    catalogo.classList.add("oculto");
+}
 
-    contacto.classList.remove("oculto");
 
-    setTimeout(function(){
+/* =========================================================
+   ABRIR PRODUCTO / MODAL
+========================================================= */
 
-        contacto.classList.add("mostrar");
+catalogo.addEventListener("click", function(evento){
 
-    },20);
+    const tarjeta = evento.target.closest(".tarjeta-producto");
 
-});
+    // Si no tocamos una tarjeta, no hacemos nada
+    if(!tarjeta){
+        return;
+    }
 
-/* ===================== VOLVER AL INICIO DESDE CONTACTO ===================== */
-botonVolverContacto.addEventListener("click", function () {
 
-    contacto.classList.remove("mostrar");
+    const imagen = tarjeta.querySelector("img");
+    const etiqueta = tarjeta.querySelector(".etiqueta");
+    const titulo = tarjeta.querySelector("h4");
+    const descripcion = tarjeta.querySelector("p:not(.etiqueta)");
+    const consulta = tarjeta.querySelector("strong");
 
-    contacto.classList.add("oculto");
 
-    encabezado.classList.remove("oculto");
+    /* Pasar los datos al modal */
 
-    presentacion.classList.remove("oculto");
-
-});
-
-/* ================= ABRIR MODAL DEL PRODUCTO ================= */
-tarjetas.forEach(function(tarjeta){
-
-    tarjeta.addEventListener("click", function(){
-
-        // Obtener información de la tarjeta
-        const imagen = tarjeta.querySelector("img");
-        const etiqueta = tarjeta.querySelector(".etiqueta");
-        const titulo = tarjeta.querySelector("h4");
-        const descripcion = tarjeta.querySelector("p:not(.etiqueta)");
-        const precio = tarjeta.querySelector("strong");
-
-        // Copiar la información al modal
+    if(imagen && imagenModal){
         imagenModal.src = imagen.src;
         imagenModal.alt = imagen.alt;
+    }
 
-        etiquetaModal.textContent = etiqueta.textContent;
+    if(etiqueta && etiquetaModal){
+        etiquetaModal.textContent =
+            etiqueta.textContent.trim();
+    }
 
-        tituloModal.textContent = titulo.textContent;
+    if(titulo && tituloModal){
+        tituloModal.textContent =
+            titulo.textContent.trim();
+    }
 
-        descripcionModal.textContent = descripcion.textContent;
+    if(descripcion && descripcionModal){
+        descripcionModal.textContent =
+            descripcion.textContent.trim();
+    }
 
-        precioModal.textContent = precio.textContent;
+    if(consulta && precioModal){
+        precioModal.textContent =
+            consulta.textContent.trim();
+    }
 
-        // Mostrar el modal
+
+    /* WhatsApp */
+
+    if(botonConsultaModal && titulo){
+
+        const numeroWhatsApp = "5493773436905";
+
+        const mensaje =
+            `Hola Cynthia 😊 Vi la pieza "${titulo.textContent.trim()}" en tu catálogo y quería hacer una consulta.`;
+
+        botonConsultaModal.href =
+            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    }
+
+
+    /* Mostrar modal */
+
+    if(modalProducto){
         modalProducto.classList.remove("oculto");
+    }
+
+});
+
+/* =========================================================
+   CERRAR MODAL CON X
+========================================================= */
+
+if(botonCerrarModal){
+
+    botonCerrarModal.addEventListener("click", function(){
+
+        modalProducto.classList.add("oculto");
 
     });
 
+}
+
+
+/* =========================================================
+   CERRAR TOCANDO AFUERA
+========================================================= */
+
+modalProducto.addEventListener("click", function(evento){
+
+    if(evento.target === modalProducto){
+
+        modalProducto.classList.add("oculto");
+
+    }
+
 });
 
-/* ================= CERRAR MODAL ================= */
-botonCerrarModal.addEventListener("click", function(){
 
-    modalProducto.classList.add("oculto");
+/* =========================================================
+   CERRAR CON ESCAPE
+========================================================= */
+
+document.addEventListener("keydown", function(evento){
+
+    if(evento.key === "Escape"){
+
+        modalProducto.classList.add("oculto");
+
+    }
 
 });
-
 /* =================== SLIDER DEL ENCABEZADO =================== */
 
 const slides = document.querySelectorAll(".slide");     /*Busca todas las imág. que tienen la clase .slide (las imagenes en el html), las guarda todas juntas en una lista*/
