@@ -2066,4 +2066,98 @@ a{
 
 }
 
+/* =====================================================
+   ARREGLOS SOLO PARA INICIO EN CELULAR
+===================================================== */
+
+@media (max-width: 768px){
+
+    /* ================= HERO ================= */
+
+    .encabezado{
+        min-height: auto;
+        max-height: none;
+    }
+
+    .contenido-encabezado{
+        min-height: 58vh;
+        padding: 30px 18px 40px;
+    }
+
+    .texto-superior{
+        font-size: .82rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    #titulo-principal{
+        font-size: 2.55rem;
+        line-height: 1.05;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+    }
+
+    .descripcion{
+        max-width: 92%;
+        font-size: .95rem;
+        line-height: 1.55;
+        margin: 12px auto 10px;
+    }
+
+
+    /* ================= PRESENTACIÓN ================= */
+
+    .presentacion{
+        width: 100%;
+        margin: 45px auto;
+        padding: 0 22px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .contenido-presentacion,
+    .descripcion-presentacion{
+        width: 100%;
+        flex: none;
+    }
+
+    .texto-seccion{
+        font-size: .78rem;
+        letter-spacing: 1.7px;
+        margin-bottom: 12px;
+    }
+
+    .presentacion h2{
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 0;
+    }
+
+    .descripcion-presentacion{
+        font-size: .95rem;
+        line-height: 1.7;
+    }
+
+
+    /* ================= WHATSAPP ================= */
+
+    .whatsapp-flotante{
+        width: 54px;
+        height: 54px;
+
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .whatsapp-flotante img{
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
 
