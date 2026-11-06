@@ -668,6 +668,7 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+    align-items: start;
 }
 
 
@@ -2158,6 +2159,43 @@ a{
         height: 28px;
     }
 
+}
+
+@media (max-width: 768px){
+
+    .modal-info .medidas-producto{
+        margin: 4px 0 14px;
+    }
+
+    .titulo-medidas{
+        font-size: .65rem;
+        margin-bottom: 7px;
+    }
+
+    .lista-medidas{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .lista-medidas span{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 7px 10px;
+
+        border-radius: 9px;
+
+        font-size: .76rem;
+
+        text-align: left;
+    }
+
+    .lista-medidas small{
+        font-size: .65rem;
+    }
 }
 
 
