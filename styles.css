@@ -668,7 +668,7 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    align-items: start;
+    
 }
 
 
@@ -2164,38 +2164,43 @@ a{
 @media (max-width: 768px){
 
     .modal-info .medidas-producto{
-        margin: 4px 0 14px;
+        margin: 8px 0 14px;
     }
 
     .titulo-medidas{
-        font-size: .65rem;
-        margin-bottom: 7px;
+        font-size: .68rem;
+        margin-bottom: 8px;
     }
 
     .lista-medidas{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        display: block;
     }
 
     .lista-medidas span{
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: space-between;
 
-        padding: 7px 10px;
+        padding: 6px 0;
 
-        border-radius: 9px;
+        border: none;
+        border-bottom: 1px solid rgba(95,141,122,.18);
 
-        font-size: .76rem;
+        border-radius: 0;
+        background: transparent;
 
-        text-align: left;
+        font-size: .78rem;
+        font-weight: 700;
+    }
+
+    .lista-medidas span:last-child{
+        border-bottom: none;
     }
 
     .lista-medidas small{
-        font-size: .65rem;
+        font-size: .68rem;
+        color: #777;
+        font-weight: 500;
     }
+
 }
-
-
